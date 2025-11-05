@@ -1,25 +1,26 @@
+let cache = [
+  { text: 'Mascot Gallery', href: '#mascots' },
+  { text: 'The Data Sphere Project', href: '#datasphere' },
+  { text: 'Holographic Series', href: '#stickers' },
+  { text: 'Check-ins & Local Eats', href: '#checkins' },
+  { text: 'Contact', href: '#contact' }
+];
+
 export async function handler() {
   try {
-    let stored = globalThis.dataSphereLinks || [];
-    if (stored.length === 0) {
+    if (cache.length > 0) {
+      const removed = cache.pop();
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: 'No links to restore' })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: 'Removed last link',
+          removed,
+          remaining: cache
+        })
       };
     }
-
-    const restored = stored.pop();
-    globalThis.dataSphereLinks = stored;
-
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: 'Last link removed',
-        removed: restored,
-        remaining: stored
-      })
-    };
+    return { statusCode: 200, body: JSON.stringify({ message: 'No links left' }) };
   } catch (err) {
     return {
       statusCode: 500,
