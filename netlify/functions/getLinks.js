@@ -1,8 +1,8 @@
-import { getStore } from '@netlify/blobs'
+import * as blobs from '@netlify/blobs'
 
 export async function handler() {
   try {
-    const store = await getStore('datasphere-links')
+    const store = blobs.createBlobStore('datasphere-links')
 
     let links = await store.get('links', { type: 'json' })
     if (!Array.isArray(links)) {
