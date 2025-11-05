@@ -1,4 +1,4 @@
-import { getStore } from '@netlify/blobs';
+import { getStore } from '@netlify/blobs@1';
 
 export async function handler() {
   try {
