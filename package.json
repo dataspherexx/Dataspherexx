@@ -2,8 +2,11 @@
   "name": "dataspherexx",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build": "echo 'Building DataSphereXX...'"
+  },
   "dependencies": {
-    "@netlify/functions": "^2.0.0",
-    "@netlify/blobs": "^1.0.0"
+    "@netlify/functions": "^2.5.0",
+    "@netlify/blobs": "^1.2.0"
   }
 }
