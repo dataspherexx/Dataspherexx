@@ -1,7 +1,7 @@
 [build]
+  command = "npm install @netlify/functions @netlify/blobs"
   publish = "."
   functions = "netlify/functions"
-  command = "npm install @netlify/functions"   # <-- forces Node runtime
 
 [functions]
   node_bundler = "esbuild"
