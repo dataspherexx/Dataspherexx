@@ -6,7 +6,6 @@
     "build": "echo 'Building DataSphereXX...'"
   },
   "dependencies": {
-    "@netlify/functions": "^2.5.0",
-    "@netlify/kv": "^1.0.1"
+    "@netlify/functions": "^2.5.0"
   }
 }
